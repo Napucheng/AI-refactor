@@ -55,3 +55,17 @@ $$
 - generate samples
 - fit the model
 - improve the policy
+
+#### Classification
+
+- Policy gradients
+- Value-based
+- Actor-critic
+
+#### Model-based RL Algo
+
+#### Tradeoffs
+
+
+
+#### Off/On Policy
