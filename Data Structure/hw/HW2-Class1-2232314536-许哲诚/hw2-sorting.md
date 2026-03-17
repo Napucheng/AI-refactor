@@ -164,7 +164,7 @@ time:11.999369 ms
 
 ​	其中归并排序、快速排序、桶排序/基数排序比较适合CPU多进程；Bitonic Sort/Odd-Even Sort更适合GPU/FPGA等硬件上的并行计算。
 
-​	下面仅简单叙述一下在串行情况下，这些排序算法的思路，代码见 [More Sort.ipynb](More Sort.ipynb) 
+​	下面仅简述一下在串行情况下，这些排序算法的思路，代码见 [More Sort.ipynb](More Sort.ipynb) 
 
 #### Quick Sort
 
