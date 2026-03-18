@@ -1,8 +1,8 @@
 ## 多目标检测
 
-先修CNN/Resnet/backward/batch normalization……
+- DETR:
 
-<u>Wait for Understanding and Updating</u>
+[End-to-end object detection with Transformers](https://ai.meta.com/blog/end-to-end-object-detection-with-transformers/)
 
 ### 锚框
 
@@ -146,3 +146,8 @@ return final_boxes, final_classes, final_scores
 
 
 
+## SSD
+
+
+
+## R-CNN
