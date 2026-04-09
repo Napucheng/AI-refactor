@@ -1,0 +1,75 @@
+---
+title: CS231n 3D vision lecture
+description: Brief summary of the CS231n 3D vision lecture
+pubDate: 03 30 2026
+image: /image/8.jpg
+categories:
+  - Lecture
+  - CV
+tags:
+  - CV
+  - 3D
+  - Lecture
+---
+
+---
+
+import Collapse from "../../components/mdx/Collapse.astro";
+import Diff from "../../components/mdx/Diff.astro";
+import Error from "../../components/mdx/Error.astro";
+import Info from "../../components/mdx/Info.astro";
+import Kbd from "../../components/mdx/Kbd.astro";
+import Success from "../../components/mdx/Success.astro";
+import Warning from "../../components/mdx/Warning.astro";
+import TimeLine from "../../components/mdx/TimeLine.astro";
+import LinkCard from "../../components/mdx/LinkCard.astro";
+
+
+
+## 3D Representation
+<Info> 分成两类：无参数(Non-parametric) 和 有参数(Parametric) </Info>
+### Explicit Representation
+
+ - **Point Cloud**：点云，每个点有三维坐标
+ - **Polygon Mesh**：多边形网格，每个面由多个点组成
+ - **Subdivision Surface**：细分曲面，通过不断细分多边形网格来得到更平滑的表面
+
+### Implicit Representation
+
+ - **Constructive solid geometry (CSG)**：构造实体几何，通过布尔运算来得到复杂的三维形状
+ - **Voxels**：体素，每个点有三维坐标和颜色
+ - **level set**：水平集，通过函数 $f(x,y,z) = c$ 来表示表面
+
+
+## Datasets(AI+geometry)
+
+### Princeton Shape Benchmark 
+
+定位： 3D 形状检索的“鼻祖”级数据集。
+特点： 发布于 2003 年，包含约 907 个多边形模型，分为 92 类。
+用途： 主要用于测试传统的 3D 形状检索和分类算法。
+现状： 规模较小，现在较少用于深度学习训练，但适合做历史对比或基础算法验证。
+
+### ShapeNet
+定位： 3D 领域的“大数据”仓库。
+特点： 包含约 300 万个 3D 模型，覆盖 22 万多个类别。模型带有丰富的语义标注（如部件分割、功能标注等）。
+用途： 适合需要海量数据支撑的任务，如生成模型、细粒度分类。
+注意： 数据质量参差不齐，部分模型非水密（有洞），直接使用需预处理。
+
+### ShapeNetCore
+定位： 深度学习研究的“标准版”数据集。
+特点： ShapeNet 的精选子集。包含约 5.5 万个高质量模型，仅保留 13 个常见类别（如飞机、椅子、桌子等）。所有模型均为水密网格，且方向标准化。
+用途： 最常用。绝大多数 3D 深度学习论文（如 PointNet、3D-CNN）都基于此数据集进行训练和对比。
+建议： 入门研究首选。
+
+
+### Objverse
+### CO3D
+### PartNet
+### ScanNet(++)
+
+
+
+![Synthesis of 3D vision tasks](/030BDD0B-8F95-4B9F-A3D3-479D334473B0.png)
+
+<Kbd>推荐指数：⭐⭐⭐⭐</Kbd>

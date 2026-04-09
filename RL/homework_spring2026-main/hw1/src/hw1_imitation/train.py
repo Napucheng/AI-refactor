@@ -173,32 +173,19 @@ def run_training(config: TrainConfig) -> None:
             if total_steps > 0 and total_steps % config.eval_interval == 0:
                 print(f"Evaluating at step {total_steps}...")
                 
-                eval_results = evaluate_policy(
-                    model,
-                    normalizer,
-                    num_episodes=config.num_video_episodes,
-                    video_size=config.video_size,
-                    device=device,
-                    policy_type=config.policy_type,
-                    flow_num_steps=config.flow_num_steps if config.policy_type == "flow" else None,
-                )
+                evaluate_policy(
+    model=model,
+    normalizer=normalizer,
+    device=device,
+    chunk_size=config.chunk_size,
+    video_size=config.video_size,
+    num_video_episodes=config.num_video_episodes,
+    flow_num_steps=config.flow_num_steps if config.policy_type == "flow" else 1,
+    step=total_steps,
+    logger=logger,
+)
                 
-                wandb.log({
-                    "eval/reward_mean": eval_results["reward_mean"],
-                    "eval/reward_std": eval_results["reward_std"],
-                    "eval/step": total_steps,
-                })
                 
-                for i, video in enumerate(eval_results["videos"]):
-                    wandb.log({f"eval/video_{i}": wandb.Video(video, fps=20)})
-                    logger.log_video(f"eval_ep_{i}_step_{total_steps}.mp4", video)
-                
-                if eval_results["reward_mean"] > best_eval_reward:
-                    best_eval_reward = eval_results["reward_mean"]
-                    logger.save_model(model.state_dict(), "model_best.pt")
-                    print(f"  → New best reward: {best_eval_reward:.3f}")
-                
-                print(f"  → Eval reward: {eval_results['reward_mean']:.3f} ± {eval_results['reward_std']:.3f}")
             
             total_steps += 1
         
