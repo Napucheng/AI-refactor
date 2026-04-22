@@ -1,0 +1,7 @@
+torch
+torchvision
+transformers>=4.38.0
+huggingface_hub>=0.22.0
+pillow
+tqdm
+safetensors
